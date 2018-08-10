@@ -59,3 +59,47 @@ sudo mv composer.phar /usr/bin/composer
 curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 sudo apt-get install -y nodejs
 ```
+#### Fixing npm permissions
+1.  Make a directory for global installations:
+    
+    ```
+     mkdir ~/.npm-global
+    
+    ```
+    
+2.  Configure npm to use the new directory path:
+    
+    ```
+     npm config set prefix '~/.npm-global'
+    
+    ```
+    
+3.  Open or create a  `~/.profile`  file and add this line:
+    
+	```
+	export PATH=~/.npm-global/bin:$PATH
+	     
+	NPM_CONFIG_PREFIX=~/.npm-global
+	    
+	```
+    
+4.  Back on the command line, update your system variables:
+    
+    ```
+     source ~/.profile
+    
+    ```
+
+#### Add composer global to path
+```
+gedit ~/bashrc
+```
+add this line :
+```
+export PATH="$PATH:/opt/lampp/bin:$HOME/.config/composer/vendor/bin"
+```
+
+### Install git
+```
+sudo apt install git
+```
