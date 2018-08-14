@@ -15,7 +15,7 @@ sudo apt-get install chromium-browser
 ### lampp server 
 > [Download](https://www.apachefriends.org/download.html)  last version
 ```
-cd ~/Download
+cd ~/Downloads
 
 sudo chmod +x xampp-linux-*
 
