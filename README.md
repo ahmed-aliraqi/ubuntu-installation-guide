@@ -92,7 +92,7 @@ sudo apt-get install -y nodejs
 
 #### Add composer global to path
 ```
-gedit ~/bashrc
+gedit ~/.bashrc
 ```
 add this line :
 ```
@@ -102,4 +102,21 @@ export PATH="$PATH:/opt/lampp/bin:$HOME/.config/composer/vendor/bin"
 ### Install git
 ```
 sudo apt install git
+```
+
+### Show git branch in terminal:
+add this code to `~/.bashrc` file :
+```
+# Show git branch name
+force_color_prompt=yes
+color_prompt=yes
+parse_git_branch() {
+ git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+if [ "$color_prompt" = yes ]; then
+ PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u:\[\033[01;34m\]\w\[\033[01;31m\]$(parse_git_branch)\[\033[00m\]\$ '
+else
+ PS1='${debian_chroot:+($debian_chroot)}\u:\w$(parse_git_branch)\$ '
+fi
+unset color_prompt force_color_prompt
 ```
