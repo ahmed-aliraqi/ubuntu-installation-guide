@@ -77,10 +77,7 @@ sudo apt-get install -y nodejs
 3.  Open or create a  `~/.profile`  file and add this line:
     
 	```
-	export PATH=~/.npm-global/bin:$PATH
-	     
-	NPM_CONFIG_PREFIX=~/.npm-global
-	    
+	export PATH=~/.npm-global/bin:$PATH	    
 	```
     
 4.  Back on the command line, update your system variables:
@@ -108,15 +105,8 @@ sudo apt install git
 add this code to `~/.bashrc` file :
 ```
 # Show git branch name
-force_color_prompt=yes
-color_prompt=yes
 parse_git_branch() {
  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
-if [ "$color_prompt" = yes ]; then
- PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u:\[\033[01;34m\]\w\[\033[01;31m\]$(parse_git_branch)\[\033[00m\]\$ '
-else
- PS1='${debian_chroot:+($debian_chroot)}\u:\w$(parse_git_branch)\$ '
-fi
-unset color_prompt force_color_prompt
+export PS1="\[\033[01;34m\]\[\e]0;\W\a\]\w\[\033[32m\]\$(parse_git_branch)\[\033[00m\]$ "
 ```
