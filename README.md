@@ -110,3 +110,8 @@ parse_git_branch() {
 }
 export PS1="\[\033[01;34m\]\[\e]0;\W\a\]\w\[\033[32m\]\$(parse_git_branch)\[\033[00m\]$ "
 ```
+
+### Hitting your system's file watchers limit
+```
+echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+```
